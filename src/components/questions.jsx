@@ -26,12 +26,12 @@ function Quiz() {
   const [numbers, setNumbers] = useState([]);
   const [suffleno,setsuffleno]=useState(0);
   const [startTime, setstartTime] = useState(new Date().toLocaleTimeString());
-  const [seconds, setSeconds] = useState(1800);
+  const [seconds, setSeconds] = useState(10);
   const [isRunning, setIsRunning] = useState(true);
   const [timemin,setTimmin]=useState(0);
   const [timesec,setTimsec]=useState(0);
   const [warnings,setwarning]=useState(0);
-  const [closetimer,setclosetimer]=useState(10);
+  const [closetimer,setclosetimer]=useState(1800);
   const userdatas=JSON.parse(getUserData());
   const navigate=useNavigate();
   const [useranswers,setuseranswers]=useState([]);
@@ -50,6 +50,9 @@ function Quiz() {
       }, 1000);
     } else {
       clearInterval(interval);
+      alert('Time Up!, Quiz Closed')
+      setIsQuizFinished(true);
+      handleRestart();
     }
     return () => clearInterval(interval);
   }, [isRunning,seconds]);
