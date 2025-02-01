@@ -26,12 +26,12 @@ function Quiz() {
   const [numbers, setNumbers] = useState([]);
   const [suffleno,setsuffleno]=useState(0);
   const [startTime, setstartTime] = useState(new Date().toLocaleTimeString());
-  const [seconds, setSeconds] = useState(10);
+  const [seconds, setSeconds] = useState(1800);
   const [isRunning, setIsRunning] = useState(true);
   const [timemin,setTimmin]=useState(0);
   const [timesec,setTimsec]=useState(0);
   const [warnings,setwarning]=useState(0);
-  const [closetimer,setclosetimer]=useState(1800);
+  const [closetimer,setclosetimer]=useState(10);
   const userdatas=JSON.parse(getUserData());
   const navigate=useNavigate();
   const [useranswers,setuseranswers]=useState([]);
