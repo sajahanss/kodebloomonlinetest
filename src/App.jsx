@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import FullScreenComponent from './components/fullscreen';
-
 import LoginPage from './components/Login';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Quiz from "./components/questions";
+
+
 
 
 
