@@ -35,6 +35,15 @@ function Quiz() {
   const userdatas=JSON.parse(getUserData());
   const navigate=useNavigate();
   const [useranswers,setuseranswers]=useState([]);
+
+  const style = {
+    whiteSpace: 'pre-wrap',  // Ensures that line breaks are respected and text wraps
+    wordWrap: 'break-word',  // Prevents long words from causing overflow
+    width: '100%',  // Takes up the full width of its container
+    overflow: 'hidden',  // Prevents horizontal overflow (no scrollbar)
+    wordBreak: 'break-all',  // Forces long words to break and wrap into the next line
+    fontWeight:'Bold'
+  };
  
 
   useEffect(() => {
@@ -221,10 +230,12 @@ function Quiz() {
         <div className="quiz-container" style={{position:'relative'}}>
           <div style={{position:'absolute',right:'10px',top:'-30px',zIndex:'99',fontWeight:'bolder'}}><span>Time Remining</span> {`${timemin<10 ? "0" : ''}${timemin}:${timesec < 10 ? "0" : ""}${timesec}`}</div>
           <div style={{position:'absolute',left:'10px',bottom:'0',zIndex:'99',fontWeight:'bolder'}}>{`warning: ${warnings}`}</div>
-          <h3 className="ms-5">
+          <h4>
             Question {currentQuestion + 1} of {questions.length-5}
-          </h3>
-          <p className="ms-5">{questions[suffleno].question}</p>  
+          </h4>
+          <pre style={style}>{questions[suffleno].question}</pre>
+          <hr />
+          <h6>Options:</h6>
           <ul className="options-list">
             {/* {questions[suffleno].options.map((option, index) => ( */}
               <li className="option-item">
